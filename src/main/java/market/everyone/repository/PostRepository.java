@@ -16,5 +16,4 @@ public interface PostRepository extends JpaRepository<Post,Long> {
     Optional<Post> findById(@Param("id")Long id);
 
 
-
 }

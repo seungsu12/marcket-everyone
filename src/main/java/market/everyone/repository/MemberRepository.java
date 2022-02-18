@@ -6,13 +6,14 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface MemberRepository extends JpaRepository<Member,Long> {
 
+    @Query("select m from Member m where m.id = :id")
+    Optional<Member> findById(@Param("id")Long id);
 
-
-    Member save(Member member);
-
-    @Query("select m from member m where m.email = :email")
-    boolean existsByEmail(@Param("email")String email);
+//    @Query("select m from Member m where m.email = :email")
+//    boolean existsByEmail(@Param("email")String email);
 }

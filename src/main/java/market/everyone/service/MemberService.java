@@ -5,6 +5,8 @@ import market.everyone.domain.Member;
 import market.everyone.repository.MemberRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class MemberService {
@@ -15,6 +17,10 @@ public class MemberService {
     public Member join(Member member) {
 
         return memberRepository.save(member);
+    }
+
+    public Member findById(Long id) {
+      return memberRepository.findById(id).orElseThrow();
     }
 
 }

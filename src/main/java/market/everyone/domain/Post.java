@@ -4,6 +4,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import market.everyone.dto.PostRequestDto;
 
 import javax.persistence.*;
 import java.util.List;
@@ -27,4 +28,13 @@ public class Post {
 
     @OneToMany(mappedBy = "post",cascade = CascadeType.ALL)
     private List<Comment> comment;
+
+    public static Post CreatePost(PostRequestDto dto) {
+        Post post = new Post();
+        post.setTitle(dto.getTitle());
+        post.setContext(dto.getContext());
+        post.setPrice(dto.getPrice());
+
+        return post;
+    }
 }
