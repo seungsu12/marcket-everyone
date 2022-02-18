@@ -5,22 +5,27 @@ import lombok.RequiredArgsConstructor;
 import market.everyone.domain.Post;
 import market.everyone.dto.PostDto;
 import market.everyone.service.PostService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/api")
 @RequiredArgsConstructor
 public class PostApiController {
 
     private final PostService postService;
 
-    @GetMapping("/api/post/{id}")
+    @GetMapping("/hello")
+    public String hello() {
+        return "hello";
+    }
+
+    @GetMapping("/post/{id}")
     public PostDto findByOne(@PathVariable("id") Long id) {
-       Post post= postService.findByOne(id);
-       PostDto dto =
-       return dto;
+
+        Post post = postService.findByOne(id);
+        PostDto dto = new PostDto();
+        return dto;
     }
 
 
