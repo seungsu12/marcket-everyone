@@ -10,7 +10,7 @@ public interface MemberRepository extends JpaRepository<Member,Long> {
 
 
 
-    Long save(Member member);
+    Member save(Member member);
 
 
 }

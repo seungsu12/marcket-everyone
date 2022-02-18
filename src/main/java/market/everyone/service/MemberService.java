@@ -12,7 +12,7 @@ public class MemberService {
     private final MemberRepository memberRepository;
 
 
-    public Long join(Member member) {
+    public Member join(Member member) {
 
         return memberRepository.save(member);
     }
