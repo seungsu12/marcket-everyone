@@ -2,6 +2,7 @@ package market.everyone.dto;
 
 import lombok.Getter;
 import lombok.Setter;
+import market.everyone.domain.Post;
 
 @Getter
 @Setter
@@ -12,4 +13,11 @@ public class PostRequestDto {
     private String context;
     private String username;
     private Integer price;
+
+    public static PostRequestDto createDto(Post post) {
+        PostRequestDto dto = new PostRequestDto();
+
+
+        return dto;
+    }
 }

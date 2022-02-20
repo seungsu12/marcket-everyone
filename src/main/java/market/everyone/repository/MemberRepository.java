@@ -12,8 +12,10 @@ import java.util.Optional;
 public interface MemberRepository extends JpaRepository<Member,Long> {
 
     @Query("select m from Member m where m.id = :id")
-    Optional<Member> findById(@Param("id")Long id);
+    Optional<Member> findById(@Param("id") Long id);
 
-//    @Query("select m from Member m where m.email = :email")
-//    boolean existsByEmail(@Param("email")String email);
+    Boolean existsByEmail(String email);
+
+    @Query("delete from Member m where m.id = :id")
+    void deleteMember(Long id);
 }

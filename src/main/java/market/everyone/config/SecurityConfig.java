@@ -11,6 +11,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private static final String[] AUTH_WHITELIST={
+            "/**",
             "/image/**",
             "/h2/**",
             "/h2-console/**"
