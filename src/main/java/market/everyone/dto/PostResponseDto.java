@@ -20,6 +20,7 @@ public class PostResponseDto {
         response.setPost_id(post.getId());
         response.setContext(post.getContext());
         response.setPrice(post.getPrice());
+        response.setTitle(post.getTitle());
 
         return response;
     }

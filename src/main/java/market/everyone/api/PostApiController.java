@@ -53,10 +53,11 @@ public class PostApiController {
 
     @PutMapping("/api/posts/{id}")
     public ResponseEntity updatePost(@PathVariable("id") Long id, @RequestBody PostRequestDto requestDto) {
+        requestDto.setId(id);
+        PostResponseDto response =postService.updatePost(requestDto);
 
-        postService.updatePost(requestDto);
-
-        return new ResponseEntity(HttpStatus.OK);
+        Message msg = Message.createMessage(StatusEnum.OK,"게시물 변경 완료",response);
+        return new ResponseEntity(msg,HttpStatus.OK);
     }
 
 }

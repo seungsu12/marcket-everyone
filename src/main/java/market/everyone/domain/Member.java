@@ -25,6 +25,7 @@ public class Member {
     private String username;
 
     @JsonIgnore
+    @Column(length = 100,nullable = false,unique = true)
     private String password;
 
 

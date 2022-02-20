@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 public class PostNotFoundException extends RuntimeException{
 
     public PostNotFoundException() {
-        super("post not fuond");
+        super("post not found");
     }
 }

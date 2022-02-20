@@ -1,4 +1,7 @@
 spring:
+  devtools:
+    liveload:
+      enabled =true
 
   h2:
     console:

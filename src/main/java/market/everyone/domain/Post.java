@@ -37,4 +37,10 @@ public class Post {
 
         return post;
     }
+
+    public void updatePost(PostRequestDto dto) {
+        this.title =dto.getTitle();
+        this.context= dto.getContext();
+        this.price = dto.getPrice();
+    }
 }

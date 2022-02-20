@@ -11,11 +11,20 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GlobalControllerAdvice {
 
-    @ExceptionHandler(value = Exception.class)
-    public ResponseEntity exception(PostNotFoundException e) {
+    @ExceptionHandler(value = PostNotFoundException.class)
+    public ResponseEntity postException(PostNotFoundException e) {
 
-        String text ="해당 게시글이 없습니다.";
-        Message msg = Message.createMessage(StatusEnum.NOT_FOUND,text,"");
+
+        Message msg = Message.createMessage(StatusEnum.NOT_FOUND,e.getMessage(),"");
+
+        return new ResponseEntity(msg,HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(value = EmailNotFoundException.class)
+    public ResponseEntity emailException(EmailNotFoundException e) {
+
+
+        Message msg = Message.createMessage(StatusEnum.NOT_FOUND,e.getMessage(),"");
 
         return new ResponseEntity(msg,HttpStatus.NOT_FOUND);
     }

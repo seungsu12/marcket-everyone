@@ -16,10 +16,10 @@ public class PostJpaRepository {
 
 
     public Post updatePost(PostRequestDto requestDto) {
-        em.find(Post.class,requestDto.getId());
-        Post result = Post.CreatePost(requestDto);
-        em.persist(result);
-        em.flush();
-        return result;
+         Post findPost =em.find(Post.class,requestDto.getId());
+         findPost.updatePost(requestDto);
+         em.flush();
+
+        return findPost;
     }
 }
