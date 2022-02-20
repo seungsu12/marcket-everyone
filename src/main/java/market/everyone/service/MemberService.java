@@ -17,6 +17,7 @@ public class MemberService {
 
     private final MemberRepository memberRepository;
     private final PasswordEncoder passwordEncoder;
+
     @Transactional
     public Member signup(MemberRequestDto requestDto) {
         Boolean existed = memberRepository.existsByEmail(requestDto.getEmail());
@@ -33,10 +34,12 @@ public class MemberService {
       return memberRepository.findById(id).orElseThrow();
     }
 
-
+    @Transactional
     public void deleteMember(Long id) {
         Boolean existed = memberRepository.existsById(id);
         if(!existed) throw new IllegalArgumentException();
-        memberRepository.deleteMember(id);
+        memberRepository.deleteById(id);
     }
+
+
 }

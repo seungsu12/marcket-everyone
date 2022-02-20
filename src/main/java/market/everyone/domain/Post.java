@@ -24,7 +24,7 @@ public class Post {
 
     private String context;
 
-    private Integer price;
+    private Long price;
 
     @OneToMany(mappedBy = "post",cascade = CascadeType.ALL)
     private List<Comment> comment;
