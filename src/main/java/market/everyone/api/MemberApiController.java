@@ -3,9 +3,9 @@ package market.everyone.api;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import market.everyone.domain.Member;
-import market.everyone.dto.MemberRequestDto;
-import market.everyone.dto.MemberResponseDto;
+import market.everyone.domain.User;
+import market.everyone.dto.UserRequestDto;
+import market.everyone.dto.UserResponseDto;
 import market.everyone.response.Message;
 import market.everyone.response.StatusEnum;
 import market.everyone.service.MemberService;
@@ -26,12 +26,12 @@ public class MemberApiController {
 
 
     @PostMapping(value = "/api/member/signup", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity signup(@RequestBody @Valid MemberRequestDto request, Errors error) {
+    public ResponseEntity signup(@RequestBody @Valid UserRequestDto request, Errors error) {
 
         log.info("signup {}", request);
-        Member member = memberService.signup(request);
+        User user = memberService.signup(request);
 
-        MemberResponseDto response = MemberResponseDto.createDto(member);
+        UserResponseDto response = UserResponseDto.createDto(user);
 
         Message msg = Message.createMessage(StatusEnum.OK, "정상적으로 등록됐습니다.", response);
 
@@ -41,8 +41,8 @@ public class MemberApiController {
     @GetMapping(value = "/api/member/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity findMemberById(@PathVariable("id") Long id) {
 
-        Member member = memberService.findById(id);
-        MemberResponseDto dto = MemberResponseDto.createDto(member);
+        User user = memberService.findById(id);
+        UserResponseDto dto = UserResponseDto.createDto(user);
         Message msg = Message.createMessage(StatusEnum.OK, "아이디 반환", dto);
         return new ResponseEntity(msg, HttpStatus.OK);
     }

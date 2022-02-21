@@ -1,15 +1,12 @@
 package market.everyone.service;
 
 import lombok.RequiredArgsConstructor;
-import market.everyone.domain.Member;
-import market.everyone.dto.MemberRequestDto;
-import market.everyone.dto.MemberResponseDto;
+import market.everyone.domain.User;
+import market.everyone.dto.UserRequestDto;
 import market.everyone.repository.MemberRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -19,18 +16,18 @@ public class MemberService {
     private final PasswordEncoder passwordEncoder;
 
     @Transactional
-    public Member signup(MemberRequestDto requestDto) {
+    public User signup(UserRequestDto requestDto) {
         Boolean existed = memberRepository.existsByEmail(requestDto.getEmail());
         if (existed) {
             throw new IllegalArgumentException();
         }
-        Member member = Member.createMember(requestDto);
-        member.encryptPassword(passwordEncoder);
-        return memberRepository.save(member);
+        User user = User.createMember(requestDto);
+        user.encryptPassword(passwordEncoder);
+        return memberRepository.save(user);
     }
 
     @Transactional(readOnly = true)
-    public Member findById(Long id) {
+    public User findById(Long id) {
       return memberRepository.findById(id).orElseThrow();
     }
 

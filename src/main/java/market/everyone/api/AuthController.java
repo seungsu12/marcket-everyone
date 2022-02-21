@@ -1,7 +1,7 @@
 package market.everyone.api;
 
 import lombok.RequiredArgsConstructor;
-import market.everyone.domain.Member;
+import market.everyone.domain.User;
 import market.everyone.jwt.JwtTokenProvider;
 import market.everyone.repository.MemberRepository;
 import market.everyone.service.AuthService;
@@ -26,7 +26,7 @@ public class AuthController {
 
     @PostMapping("/join")
     public Long join(@RequestBody Map<String,String> member) {
-        return memberRepository.save(Member.builder()
+        return memberRepository.save(User.builder()
                 .email(member.get("email"))
                 .password(passwordEncoder.encode(member.get("password")))
                 .roles(Collections.singletonList("ROLE_USER"))
@@ -35,7 +35,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public String login(@RequestBody Map<String, String> member) {
-        Member user = memberRepository.findByEmail(member.get("email"))
+        User user = memberRepository.findByEmail(member.get("email"))
                 .orElseThrow(() -> new IllegalArgumentException("가입 되지 않은 E-MAIL 입니다."));
         if(!passwordEncoder.matches(member.get("password"), user.getPassword())){
             throw new IllegalArgumentException("잘못된 비밀번호입니다.");

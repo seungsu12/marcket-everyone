@@ -28,3 +28,5 @@ spring:
 logging:
   level:
     me.silvernine: DEBUG
+
+secretKey: secretcarrot
