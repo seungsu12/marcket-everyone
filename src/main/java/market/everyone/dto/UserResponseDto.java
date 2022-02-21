@@ -8,7 +8,7 @@ import market.everyone.domain.User;
 @Setter
 public class UserResponseDto {
 
-    private String username;
+    private String name;
 
     private String nickname;
 
@@ -16,7 +16,7 @@ public class UserResponseDto {
 
     public static UserResponseDto createDto(User user) {
         UserResponseDto dto = new UserResponseDto();
-        dto.setUsername(user.getUsername());
+        dto.setName(user.getName());
         dto.setNickname(user.getNickname());
         dto.setEmail(user.getEmail());
         return dto;

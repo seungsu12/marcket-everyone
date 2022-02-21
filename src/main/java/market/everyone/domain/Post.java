@@ -26,8 +26,7 @@ public class Post {
 
     private Long price;
 
-    @OneToMany(mappedBy = "post",cascade = CascadeType.ALL)
-    private List<Comment> comment;
+
 
     public static Post CreatePost(PostRequestDto dto) {
         Post post = new Post();

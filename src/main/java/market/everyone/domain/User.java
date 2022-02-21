@@ -25,22 +25,23 @@ public class User implements UserDetails {
 
     @Id
     @GeneratedValue
-    @Column(name="member_id")
+    @Column(name = "user_id")
     private Long id;
 
-    private String username;
+    private String name;
 
+    @Column(nullable = false,unique = true)
+    private String email;
     @JsonIgnore
-    @Column(length = 100,nullable = false,unique = true)
+    @Column(length = 100,nullable = false)
     private String password;
 
 
     private String nickname;
 
 
-    private String email;
 
-    @ElementCollection(fetch = FetchType.LAZY)
+    @ElementCollection(fetch = FetchType.EAGER)
     @Builder.Default
     private List<String> roles = new ArrayList<>();
 
@@ -80,7 +81,7 @@ public class User implements UserDetails {
     public static User createMember(UserRequestDto dto) {
         User user = new User();
         user.setEmail(dto.getEmail());
-        user.setUsername(dto.getUsername());
+        user.setName(dto.getName());
         user.setPassword(dto.getPassword());
         user.setNickname(dto.getNickname());
         return user;

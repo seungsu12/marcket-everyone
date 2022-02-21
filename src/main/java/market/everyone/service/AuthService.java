@@ -3,7 +3,7 @@ package market.everyone.service;
 import lombok.RequiredArgsConstructor;
 import market.everyone.domain.User;
 import market.everyone.dto.UserRequestDto;
-import market.everyone.repository.MemberRepository;
+import market.everyone.repository.UserrRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class AuthService {
 
-    private final MemberRepository memberRepository;
+    private final UserrRepository userrRepository;
     private final PasswordEncoder passwordEncoder;
 
     public User signup(UserRequestDto request) {
@@ -21,7 +21,7 @@ public class AuthService {
         User user = User.createMember(request);
         user.encryptPassword(passwordEncoder);
 
-        memberRepository.save(user);
+        userrRepository.save(user);
         return user;
     }
 

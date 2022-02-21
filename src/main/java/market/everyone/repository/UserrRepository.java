@@ -9,9 +9,9 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface MemberRepository extends JpaRepository<User,Long> {
+public interface UserrRepository extends JpaRepository<User,Long> {
 
-    @Query("select m from User m where m.id = :id")
+    @Query("select u from User u where u.id = :id")
     Optional<User> findById(@Param("id") Long id);
 
     Boolean existsByEmail(String email);
