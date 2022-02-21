@@ -3,8 +3,7 @@ package market.everyone.api;
 import lombok.RequiredArgsConstructor;
 import market.everyone.domain.User;
 import market.everyone.jwt.JwtTokenProvider;
-import market.everyone.repository.UserrRepository;
-import market.everyone.service.AuthService;
+import market.everyone.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,7 +20,7 @@ public class AuthController {
 
     private final PasswordEncoder passwordEncoder;
     private final JwtTokenProvider jwtTokenProvider;
-    private final UserrRepository userRepository;
+    private final UserRepository userRepository;
 
     @PostMapping("/join")
     public Long join(@RequestBody Map<String,String> user) {

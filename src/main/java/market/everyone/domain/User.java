@@ -25,20 +25,20 @@ public class User implements UserDetails {
 
     @Id
     @GeneratedValue
-    @Column(name = "user_id")
+//    @Column(name = "user_id")
     private Long id;
 
     private String name;
 
     @Column(nullable = false,unique = true)
     private String email;
+
     @JsonIgnore
     @Column(length = 100,nullable = false)
     private String password;
 
 
     private String nickname;
-
 
 
     @ElementCollection(fetch = FetchType.EAGER)
