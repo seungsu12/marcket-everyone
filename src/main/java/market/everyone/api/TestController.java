@@ -1,6 +1,6 @@
 package market.everyone.api;
 
-import market.everyone.dto.UserRequestDto;
+import market.everyone.dto.MemberRequestDto;
 import market.everyone.error.ErrorBuilder;
 import market.everyone.exception.PostNotFoundException;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +16,7 @@ import javax.validation.Valid;
 public class TestController {
 
     @PostMapping("/valid")
-    public ResponseEntity valid(@Valid @RequestBody UserRequestDto request, BindingResult bindingResult) {
+    public ResponseEntity valid(@Valid @RequestBody MemberRequestDto request, BindingResult bindingResult) {
 
         ResponseEntity responseEntity;
         if(bindingResult.hasErrors()){

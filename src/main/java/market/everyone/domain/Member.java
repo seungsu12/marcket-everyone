@@ -2,7 +2,7 @@ package market.everyone.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
-import market.everyone.dto.UserRequestDto;
+import market.everyone.dto.MemberRequestDto;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,11 +21,11 @@ import java.util.stream.Collectors;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @Builder
-public class User implements UserDetails {
+public class Member implements UserDetails {
 
     @Id
     @GeneratedValue
-//    @Column(name = "user_id")
+    @Column(name = "member_id")
     private Long id;
 
     private String name;
@@ -78,13 +78,13 @@ public class User implements UserDetails {
         return false;
     }
 
-    public static User createMember(UserRequestDto dto) {
-        User user = new User();
-        user.setEmail(dto.getEmail());
-        user.setName(dto.getName());
-        user.setPassword(dto.getPassword());
-        user.setNickname(dto.getNickname());
-        return user;
+    public static Member createMember(MemberRequestDto dto) {
+        Member member = new Member();
+        member.setEmail(dto.getEmail());
+        member.setName(dto.getName());
+        member.setPassword(dto.getPassword());
+        member.setNickname(dto.getNickname());
+        return member;
     }
 
     public void encryptPassword(PasswordEncoder passwordEncoder) {

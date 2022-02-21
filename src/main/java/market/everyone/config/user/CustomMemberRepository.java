@@ -1,7 +1,7 @@
 package market.everyone.config.user;
 
 import lombok.RequiredArgsConstructor;
-import market.everyone.repository.UserRepository;
+import market.everyone.repository.MemberRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class CustomMemberRepository implements UserDetailsService {
 
-    private final UserRepository userRepository;
+    private final MemberRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

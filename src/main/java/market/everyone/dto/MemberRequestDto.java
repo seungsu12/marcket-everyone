@@ -7,7 +7,7 @@ import javax.validation.constraints.NotBlank;
 
 @Getter
 @Setter
-public class UserRequestDto {
+public class MemberRequestDto {
 
     @NotBlank(message = "메일은 필수입니다.")
     private String email;
