@@ -18,10 +18,10 @@ public class PostResponseDto {
     private String context;
     private Long price;
 
-    public static PostResponseDto CreateDto(Post post, Map<String,String> userInfo) {
+    public static PostResponseDto CreateDto(Post post, Long member_id, String nickname) {
         PostResponseDto response = new PostResponseDto();
-        response.setNickname(userInfo.get("nickname"));
-        response.setMember_id(Integer.valueOf(userInfo.get("member_id"));
+        response.setNickname(nickname);
+        response.setMember_id(member_id);
         response.setPost_id(post.getId());
         response.setContext(post.getContext());
         response.setPrice(post.getPrice());
@@ -30,4 +30,13 @@ public class PostResponseDto {
         return response;
     }
 
+    public static PostResponseDto CreateDto(Post post) {
+        PostResponseDto response = new PostResponseDto();
+        response.setPost_id(post.getId());
+        response.setContext(post.getContext());
+        response.setPrice(post.getPrice());
+        response.setTitle(post.getTitle());
+
+        return response;
+    }
 }

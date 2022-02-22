@@ -2,7 +2,6 @@ package market.everyone.api;
 
 
 import lombok.RequiredArgsConstructor;
-import market.everyone.domain.Post;
 import market.everyone.dto.PostRequestDto;
 import market.everyone.dto.PostResponseDto;
 import market.everyone.response.Message;

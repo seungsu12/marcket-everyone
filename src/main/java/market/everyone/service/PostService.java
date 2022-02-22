@@ -34,12 +34,10 @@ public class PostService {
     public PostResponseDto findById(Long id) {
 
         Post findPost =postRepository.findByIdAndName(id).orElseThrow( () ->new PostNotFoundException());
-        Map<String,String> userInfo = new HashMap<>();
-        userInfo.put("member_id",String.valueOf(findPost.getMember().getId()));
-        userInfo.put("nickname",findPost.getMember().getNickname());
 
-
-        return PostResponseDto.CreateDto(findPost,userInfo);
+        Long member_id = findPost.getMember().getId();
+        String nickname = findPost.getMember().getNickname();
+        return PostResponseDto.CreateDto(findPost,member_id,nickname);
 
 
     }
@@ -69,7 +67,7 @@ public class PostService {
 
     public List<PostResponseDto> getPosts() {
         List<Post> posts = postRepository.getPosts();
-        List<PostResponseDto> result = posts.stream().map(n -> PostResponseDto.CreateDto(n))
+        List<PostResponseDto> result = posts.stream().map(n -> PostResponseDto.CreateDto(n,n.getMember().getId(),n.getMember().getNickname()))
                 .collect(Collectors.toList());
 
         return result;
