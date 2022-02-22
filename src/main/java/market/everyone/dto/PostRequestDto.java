@@ -13,6 +13,7 @@ public class PostRequestDto {
     private String context;
     private String username;
     private Long price;
+    private Long member_id;
 
 
 }

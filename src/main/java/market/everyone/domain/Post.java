@@ -26,16 +26,26 @@ public class Post {
 
     private Long price;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id")
+    private Member member;
 
 
-    public static Post CreatePost(PostRequestDto dto) {
+    public void setMember(Member member) {
+        this.member =member;
+        member.getPosts().add(this);
+    }
+
+    public static Post CreatePost(PostRequestDto dto,Member member) {
         Post post = new Post();
         post.setTitle(dto.getTitle());
         post.setContext(dto.getContext());
         post.setPrice(dto.getPrice());
+        post.setMember(member);
 
         return post;
     }
+
 
     public void updatePost(PostRequestDto dto) {
         this.title =dto.getTitle();

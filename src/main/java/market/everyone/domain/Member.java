@@ -40,6 +40,10 @@ public class Member implements UserDetails {
 
     private String nickname;
 
+    @OneToMany(mappedBy ="member")
+    private List<Post> posts = new ArrayList<>();
+
+
 
     @ElementCollection(fetch = FetchType.EAGER)
     @Builder.Default

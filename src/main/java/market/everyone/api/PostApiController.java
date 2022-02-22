@@ -22,11 +22,10 @@ public class PostApiController {
 
 
     @GetMapping("/api/post/{id}")
-    public PostResponseDto findByOne(@PathVariable("id") Long id) {
+    public PostResponseDto findById(@PathVariable("id") Long id) {
 
-        Post post = postService.findByOne(id);
-        PostResponseDto dto = new PostResponseDto();
-        return dto;
+        return postService.findById(id);
+
     }
 
     @PostMapping("/api/post")
@@ -51,7 +50,7 @@ public class PostApiController {
         return postService.getPosts();
     }
 
-    @PutMapping("/api/posts/{id}")
+    @PutMapping("/api/post/{id}")
     public ResponseEntity updatePost(@PathVariable("id") Long id, @RequestBody PostRequestDto requestDto) {
         requestDto.setId(id);
         PostResponseDto response =postService.updatePost(requestDto);

@@ -13,10 +13,13 @@ import java.util.Optional;
 public interface PostRepository extends JpaRepository<Post,Long> {
 
 
-    @Query("select p from Post p where p.id =:id ")
-    Optional<Post> findById(@Param("id")Long id);
 
 
     @Query("select p from Post p")
     List<Post> getPosts();
+
+    @Query("select p from Post p join fetch p.member")
+    Optional<Post> findByIdAndName(Long id);
+
+    Boolean ExistsById(Long id);
 }

@@ -2,41 +2,67 @@ package market.everyone.service;
 
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import market.everyone.domain.Member;
 import market.everyone.domain.Post;
 import market.everyone.dto.PostRequestDto;
 import market.everyone.dto.PostResponseDto;
 import market.everyone.exception.PostNotFoundException;
+import market.everyone.repository.MemberRepository;
 import market.everyone.repository.PostJpaRepository;
 import market.everyone.repository.PostRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
+@Slf4j
 public class PostService {
 
     private final PostRepository postRepository;
     private final PostJpaRepository postJpaRepository;
+    private final MemberRepository memberRepository;
 
 
-    public Post findByOne(Long id) {
-        return postRepository.findById(id).get();
+    public PostResponseDto findById(Long id) {
+
+        Post findPost =postRepository.findByIdAndName(id).orElseThrow( () ->new PostNotFoundException());
+        Map<String,String> userInfo = new HashMap<>();
+        userInfo.put("member_id",String.valueOf(findPost.getMember().getId()));
+        userInfo.put("nickname",findPost.getMember().getNickname());
+
+
+        return PostResponseDto.CreateDto(findPost,userInfo);
+
+
     }
 
     @Transactional(readOnly = false)
     public Long save(PostRequestDto request) {
 
-        Post save = postRepository.save(Post.CreatePost(request));
+        Optional<Member> member = memberRepository.findById(request.getMember_id());
+        log.info("save member {}",member.get());
+
+        Post save = postRepository.save(Post.CreatePost(request,
+                member.orElseThrow(() ->new IllegalArgumentException("멤버가 없습니다."))));
 
         return save.getId();
     }
 
 
     public void deletePost(Long id) {
+        boolean existPost = postRepository.existsById(id);
+        if (existPost) {
+            throw new PostNotFoundException();
+        }
+
         postRepository.deleteById(id);
     }
 
@@ -48,10 +74,11 @@ public class PostService {
 
         return result;
     }
-    @Transactional(readOnly = false)
+    @Transactional
     public PostResponseDto updatePost(PostRequestDto requestDto) {
 
         boolean existed = postRepository.existsById(requestDto.getId());
+
         if (!existed) {
             throw new PostNotFoundException();
         }
