@@ -31,7 +31,7 @@ public class Post {
     @JoinColumn(name = "member_id")
     private Member member;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @Embedded
     private Item item;
 
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "post")

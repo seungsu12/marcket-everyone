@@ -11,8 +11,8 @@ import java.util.Optional;
 
 public interface PostRepository extends JpaRepository<Post,Long> {
 
-
-
+    @Query("select p from Post p join fetch p.member")
+    Post getPostAll();
 
     @Query("select p from Post p join fetch p.member")
     List<Post> getPosts();

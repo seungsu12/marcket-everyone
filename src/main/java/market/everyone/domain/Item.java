@@ -7,19 +7,15 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-@Entity
+@Embeddable
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Item {
 
 
-    @Id
-    @GeneratedValue
-    @Column(name = "item_id")
-    private Long id;
-
-    private String name;
+    @Column(name = "item_name")
+    private String itemName;
 
     @Enumerated(EnumType.STRING)
     private ItemType type;
