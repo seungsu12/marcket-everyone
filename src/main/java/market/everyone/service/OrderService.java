@@ -2,6 +2,7 @@ package market.everyone.service;
 
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import market.everyone.domain.Member;
 import market.everyone.domain.Order;
 import market.everyone.domain.Post;
@@ -16,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @RequiredArgsConstructor
 @Transactional
+@Slf4j
 public class OrderService {
 
     private final OrderRepository orderRepository;
@@ -25,7 +27,11 @@ public class OrderService {
     public OrderResponseDto createOrder(OrderRequestDto request) {
 
         Member member = memberRepository.getById(request.getMember_id());
-        Post post = postRepository.getById(request.getPost_id());
+        Post post = postRepository.getPostAll(request.getPost_id());
+
+
+        log.info("post,item name {}" ,post.getItem());
+
         Order order = Order.createOrder(request,member,post);
         Order saveOrder = orderRepository.save(order);
 

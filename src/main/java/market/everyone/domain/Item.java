@@ -9,10 +9,13 @@ import javax.persistence.*;
 
 @Embeddable
 @Getter
-@Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Item {
 
+    public Item(String itemName, ItemType type) {
+        this.itemName = itemName;
+        this.type = type;
+    }
 
     @Column(name = "item_name")
     private String itemName;

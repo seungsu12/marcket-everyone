@@ -49,7 +49,7 @@ public class Post {
         post.setContext(dto.getContext());
         post.setPrice(dto.getPrice());
         post.setMember(member);
-
+        post.setItem(new Item(dto.getItem_name(),dto.getType()));
         return post;
     }
 
