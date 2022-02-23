@@ -5,5 +5,5 @@ import javax.persistence.Entity;
 
 public enum ItemType {
 
-    ELECTRONIC,BOOK,CLOTHE,FURNITURE
+    ELECTRONIC,BOOK,CLOTHE,FURNITURE,RIDING
 }

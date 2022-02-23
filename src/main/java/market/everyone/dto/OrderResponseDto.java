@@ -24,6 +24,7 @@ public class OrderResponseDto {
         OrderResponseDto response = new OrderResponseDto();
         response.setId(order.getId());
         response.setPost_id(post.getId());
+        response.setBuyer_id(order.getMember().getId());
         response.setSeller_id(post.getMember().getId());
         response.setStartDate(order.getStartDate());
         response.setEndDate(order.getEndDate());
