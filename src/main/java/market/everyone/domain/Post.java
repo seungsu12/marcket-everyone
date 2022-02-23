@@ -7,6 +7,7 @@ import lombok.Setter;
 import market.everyone.dto.PostRequestDto;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -29,6 +30,12 @@ public class Post {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    private Item item;
+
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "post")
+    private List<Order> orders = new ArrayList<>();
 
 
     public void setMember(Member member) {

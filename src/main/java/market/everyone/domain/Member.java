@@ -38,12 +38,14 @@ public class Member implements UserDetails {
     private String password;
 
 
+
     private String nickname;
 
     @OneToMany(mappedBy ="member")
     private List<Post> posts = new ArrayList<>();
 
-
+    @OneToMany(mappedBy = "member")
+    private List<Order> orders = new ArrayList<>();
 
     @ElementCollection(fetch = FetchType.EAGER)
     @Builder.Default
