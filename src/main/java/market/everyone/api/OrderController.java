@@ -10,10 +10,7 @@ import market.everyone.response.StatusEnum;
 import market.everyone.service.OrderService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -30,5 +27,14 @@ public class OrderController {
 
         return new ResponseEntity(msg,HttpStatus.OK);
 
+    }
+
+    @DeleteMapping("/api/order/{id}")
+    public ResponseEntity cancelOrder(@PathVariable("id")Long id) {
+
+        orderService.cancelOrder(id);
+
+        Message msg = Message.createMessage(StatusEnum.OK,"삭제 완료",id);
+        return new ResponseEntity(msg,HttpStatus.OK);
     }
 }
