@@ -33,7 +33,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     private static final String[] AUTH_WHITELIST={
-
+            "/js/**",
+            "/css/**",
             "/image/**",
             "/h2/**",
             "/h2-console/**"
@@ -53,7 +54,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/auth/**","/api/**").permitAll()
+                .antMatchers("/auth/**","/api/**","/**").permitAll()
                 .antMatchers("/admin").hasRole("ADMIN")
                 .antMatchers("/test/**").hasRole("USER")
                 .anyRequest().permitAll()

@@ -1,0 +1,54 @@
+
+.login_wrapper{
+    border: none;
+    border-radius: 2rem;
+    padding: 3rem;
+    margin : 8rem auto 0 auto;
+    width: 800px;
+    height: 640px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.join_item{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+.join_item input{
+    margin-top: 1rem;
+    padding: 0.3rem;
+    font-size: 1.3rem;
+    width: 40rem;
+    height: 2.5rem;
+}
+.join_title{
+    margin-bottom: 2rem;
+    font-size: 3rem;
+}
+.join_submit_wrapper input{
+    background-color: #1E9FEF;
+    color: white;
+    width: 240px;
+    height: 4rem;
+    border: none;
+    box-shadow: 2px 2px 2px;
+    border-radius: 0.3rem;
+    font-size: 1.3rem;
+}
+
+.join_submit_wrapper input:hover{
+    background-color: white;
+    color: black;
+    border: none;
+}
+.join_naver_wrapper img{
+    width: 240px;
+    margin-top:2rem
+}
+.join_naver_wrapper img :hover{
+    content:url("../../../../../every_view/img/btnW_완성형.png");
+}

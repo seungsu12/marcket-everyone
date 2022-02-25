@@ -1,21 +1,114 @@
-<!doctype html>
-<html lang="ko" xmlns:th="http://www.thymleaf.org"
-    xmlns:layout="http://www.ultraq.net.nz/thymleaf/layout"
-      layout:decorate="~{layouts/my-layout}">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://kit.fontawesome.com/31d5f47bc8.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
 
-    <th:block layout:fragment="css">
-        <link rel="stylesheet" th:href="@{/css/page/main.css}">
-    </th:block>
 
-    <th:block layout:frgment="script">
-        <script th:src="@{/js/main.js}"></script>
-    </th:block>
+</head>
+<body>
 
-    <div layout:frament="header">
-
+  <header>
+    <div class="header_item header_first">
+      Every Marcket
     </div>
-    <div layout:fragment="content">
-        <h1>content</h1>
+    <div class="header_right">
+      <div class="header_item">
+        로그인
+      </div>
+      <div class="header_item">
+        회원가입
+      </div>
+      
+    </div>
+  </header>
+  <div class="main_content">
+      <div class="main_title">
+          Welcome EveryOne
+      </div>
+      <div class="main_input_box">
+        
+        <input type="text" placeholder="Text Here">
+        <input type="submit" value="search">
+      </div>
+  </div>
+  <div class="post_wrapper">
+      <div class="post_box">
+          <div class="post_img">
+              <img src="./sand.jpg">
+          </div>
+          <div class="post_info">
+              <div class="post_title">저렴하게 팝니다.</div>
+              <div class="post_price">8,000원</div>
+          </div>
+      </div>
+
+        <div class="post_box">
+            <div class="post_img">
+                <img src="./sand.jpg">
+            </div>
+            <div class="post_info">
+                <div class="post_title">저렴하게 팝니다.</div>
+                <div class="post_price">8,000원</div>
+            </div>
+        </div>
+
+        <div class="post_box">
+          <div class="post_img">
+              <img src="./sand.jpg">
+          </div>
+          <div class="post_info">
+              <div class="post_title">저렴하게 팝니다.</div>
+              <div class="post_price">8,000원</div>
+          </div>
+      </div>
+
+      <div class="post_box">
+        <div class="post_img">
+            <img src="./sand.jpg">
+        </div>
+        <div class="post_info">
+            <div class="post_title">저렴하게 팝니다.</div>
+            <div class="post_price">8,000원</div>
+        </div>
     </div>
 
+    <div class="post_box">
+      <div class="post_img">
+          <img src="./sand.jpg">
+      </div>
+      <div class="post_info">
+          <div class="post_title">저렴하게 팝니다.</div>
+          <div class="post_price">8,000원</div>
+      </div>
+  </div>
+
+  <div class="post_box">
+    <div class="post_img">
+        <img src="./sand.jpg">
+    </div>
+    <div class="post_info">
+        <div class="post_title">저렴하게 팝니다.</div>
+        <div class="post_price">8,000원</div>
+    </div>
+</div>
+
+<div class="post_box">
+  <div class="post_img">
+      <img src="./sand.jpg">
+  </div>
+  <div class="post_info">
+      <div class="post_title">저렴하게 팝니다.</div>
+      <div class="post_price">8,000원</div>
+  </div>
+</div>
+  </div>
+  <footer>
+
+  </footer>
+</body>
 </html>
