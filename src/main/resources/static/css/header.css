@@ -25,3 +25,7 @@ header{
     width: 15rem;
     margin-left:5rem ;
 }
+.header_item a{
+    text-decoration: none;
+    color: black;
+}
