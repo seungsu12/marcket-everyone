@@ -15,15 +15,20 @@ import javax.validation.Valid;
 @RestController
 public class TestController {
 
+    @GetMapping("/api/hello")
+    public String hello() {
+
+        return "hello";
+    }
+
     @PostMapping("/valid")
     public ResponseEntity valid(@Valid @RequestBody MemberRequestDto request, BindingResult bindingResult) {
 
         ResponseEntity responseEntity;
-        if(bindingResult.hasErrors()){
-                responseEntity = ErrorBuilder.createErrorMessage(bindingResult);
-        }
-        else{
-            responseEntity= ResponseEntity.ok(request);
+        if (bindingResult.hasErrors()) {
+            responseEntity = ErrorBuilder.createErrorMessage(bindingResult);
+        } else {
+            responseEntity = ResponseEntity.ok(request);
         }
         return responseEntity;
 

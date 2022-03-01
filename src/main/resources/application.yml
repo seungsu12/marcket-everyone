@@ -1,6 +1,7 @@
 
 spring:
 
+
   devtools:
     liveload:
       enabled =true
@@ -32,3 +33,5 @@ logging:
     me.silvernine: DEBUG
 
 secretKey: secretcarrot
+server:
+  port: 3000
