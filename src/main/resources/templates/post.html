@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymleaf.org">
+<html lang="en" xmlns:th="http://www.thymleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="/layout/default">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <title>post</title>
 </head>
-<body>
+
   <header>
     <div class="header_item header_first">
       Every Marcket
@@ -22,6 +20,8 @@
       
     </div>
   </header>
+<th:block layout:fragment="content">
+
   <div class="po_box">
 
     <div class="po_wrapper">
@@ -72,5 +72,6 @@
 
     </div>
   </div>
-</body>
+</th:block>
+
 </html>

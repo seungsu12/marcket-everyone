@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymleaf.org"
-    xmlns:layout="http://www.ultraq.net.nz/thymelaf/layout"
-    layout:decorate="/layout/default">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="/layout/default">
 <head>
     <title>회원가입</title>
 
 </head>
 
 <th:block layout:fragment="content">
+<form>
 
   <div class="join_wrapper">
       <div class="join_title">
@@ -38,12 +39,46 @@
 
       <div class="join_submit_wrapper">
 
-        <input id="" type="submit" value="가입하기">
+        <input id="join_button" type="submit" value="가입하기">
       </div>
 
 
 
   </div>
-
+</form>
 </th:block>
+`<th:block layout:fragment ="js">
+    <script>
+
+
+
+
+        $("#join_button").click( function (event){
+            event.preventDefault();
+            let data ={
+                "email" : $("#email").val(),
+                "password" : $("#password").val(),
+                "name" :$("#name").val(),
+                "nickname" : $("#nickname").val()
+            }
+            console.log(data);
+
+            let json = JSON.stringify(data);
+
+            $.ajax({
+                url : "api/member/signup",
+                contentType :"application/json;charset=utf-8",
+                data : json
+                ,method : "post"
+                ,success:function (data){
+                    console.log(data)
+                }
+
+            })
+
+        });
+
+    </script>
+</th:block>
+
 </html>

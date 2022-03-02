@@ -34,7 +34,7 @@ public class controller {
     public String main(Model model) {
         List<PostResponseDto> posts =postService.getPosts();
         model.addAttribute("posts",posts);
-        log.info("id {}",posts.get(0).getPost_id());
+//        log.info("id {}",posts.get(0).getPost_id());
         return "main";
     }
 

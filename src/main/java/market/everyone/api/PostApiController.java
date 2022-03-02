@@ -2,6 +2,7 @@ package market.everyone.api;
 
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import market.everyone.dto.PostRequestDto;
 import market.everyone.dto.PostResponseDto;
 import market.everyone.response.Message;
@@ -15,6 +16,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@Slf4j
 public class PostApiController {
 
     private final PostService postService;
@@ -29,7 +31,7 @@ public class PostApiController {
 
     @PostMapping("/api/post")
     public ResponseEntity savePost(@RequestBody PostRequestDto request) {
-
+        log.info("post 저장 메서드");
         Long id = postService.save(request);
         Message msg = Message.createMessage(StatusEnum.OK, "게시물 저장완료", id);
 
