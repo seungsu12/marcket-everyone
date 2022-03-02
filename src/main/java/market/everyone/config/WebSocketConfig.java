@@ -16,9 +16,11 @@ import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry
 public class WebSocketConfig implements WebSocketConfigurer {
 
     private final CarrotWebSocketHandler webSocketHandler;
+    private final ChatHandler chatHandler;
 
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-        registry.addHandler(webSocketHandler,"/ws/chat").setAllowedOrigins("*");
+        registry.addHandler(chatHandler,"/ws/chat").setAllowedOrigins("http://localhost:8080");
+        registry.addHandler(webSocketHandler,"/ws/chating").setAllowedOrigins("*");
     }
 }

@@ -10,19 +10,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
-@RequiredArgsConstructor
+//@RestController
+//@RequiredArgsConstructor
 public class MsgController {
 
-    private final MsgService msgService;
-
-    @PostMapping("/chat")
-    public MsgRoom createRoom(@RequestParam(defaultValue = "roomName") String name ) {
-        return msgService.createRoom(name);
-    }
-
-    @GetMapping("/chat")
-    public List<MsgRoom> findAllRoom() {
-        return msgService.findAllRoom();
-    }
+//    private final MsgService msgService;
+//
+//    @PostMapping("/chat")
+//    public MsgRoom createRoom(@RequestParam(defaultValue = "roomName") String name ) {
+//        return msgService.createRoom(name);
+//    }
+//
+//    @GetMapping("/chat")
+//    public List<MsgRoom> findAllRoom() {
+//        return msgService.findAllRoom();
+//    }
 }

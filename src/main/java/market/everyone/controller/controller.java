@@ -23,6 +23,12 @@ public class controller {
 
     private final PostService postService;
 
+    @GetMapping("/chat")
+    public String chatGET() {
+        log.info("@ChatController , chat GET()");
+        return "chat";
+    }
+
 
     @GetMapping("/")
     public String main(Model model) {
