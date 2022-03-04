@@ -1,5 +1,12 @@
 
 spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id : 66553669104-j9vtrudrf6r90bt4t4tmaptfaemsomvt.apps.googleusercontent.com
+            client-secret : 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
 
 
   devtools:
@@ -26,6 +33,8 @@ spring:
         format_sql: true
         show_sql: false
     defer-datasource-initialization: true
+  profiles:
+    active: true
 
 
 logging:

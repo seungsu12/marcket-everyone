@@ -30,6 +30,9 @@ public class Member implements UserDetails {
 
     private String name;
 
+    @Column(unique = true,nullable = false)
+    private String oAuth2Id;
+
     @Column(nullable = false,unique = true)
     private String email;
 
@@ -37,7 +40,9 @@ public class Member implements UserDetails {
     @Column(length = 100,nullable = false)
     private String password;
 
-
+    @Column(nullable = false)
+    @Enumerated(value= EnumType.STRING)
+    private Role role;
 
     private String nickname;
 
