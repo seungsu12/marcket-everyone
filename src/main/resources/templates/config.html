@@ -1,0 +1,17 @@
+<html lang="ko"
+      xmlns:th="http://thymleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <th:block th:fragment="configFragment">
+        <!--        공통 css-->
+        <link rel="stylesheet" th:href="@{/css/style.css}">
+
+        <!--        공통 js-->
+        <script th:src="@{/js/common.js"></script>
+
+        <!--content page css , js        -->
+        <th:block layout:fragment="css"></th:block>
+
+        <th:block layout:fragment="script"></th:block>
+    </th:block>
+
+</html>

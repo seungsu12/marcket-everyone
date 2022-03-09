@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="/layout/default">
+<head>
+    <title>Every Marcket</title>
+
+</head>
+<th:block layout:fragment="content">
+
+  <div class="main_content">
+      <div class="main_title">
+          Welcome EveryOne
+      </div>
+      <div class="main_input_box">
+        
+        <input type="text" placeholder="Text Here">
+        <input type="submit" value="search">
+      </div>
+  </div>
+  <div class="post_wrapper">
+
+      <div class="post_box" th:each="post : ${posts}" th:onclick="|location.href='@{/view/post/${post.post_id}}'|">
+          <div class="post_img">
+              <img src="./sand.jpg">
+          </div>
+          <div class="post_info">
+              <div class="post_title" th:text="${post.title}"></div>
+              <div class="post_price" th:text="${post.price}">8,000원</div>
+          </div>
+      </div>
+
+
+  </div>
+</th:block>
+
+</html>

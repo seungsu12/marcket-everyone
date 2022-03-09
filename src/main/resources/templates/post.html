@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="/layout/default">
+<head>
+  <title>post</title>
+</head>
+
+  <header>
+    <div class="header_item header_first">
+      Every Marcket
+    </div>
+    <div class="header_right">
+      <div class="header_item">
+        로그인
+      </div>
+      <div class="header_item">
+        회원가입
+      </div>
+      
+    </div>
+  </header>
+<th:block layout:fragment="content">
+
+  <div class="po_box">
+
+    <div class="po_wrapper">
+      <div class="po_img_wrapper">
+        <img src="./sky.jpg">
+      </div>
+      <div class="po_info">
+        <div class="po_title">
+          포켓몬 아르세우스 한카리아스 의상
+        </div>
+        <div class="po_price">
+          6,000원
+        </div>
+        <div class="po_cotext">
+          한카리아스 의상입니다.~
+          깨끗하고 좋아요
+        </div>
+        <div class="po_buttons">
+          <input type="date">
+          <input type="date">
+          <input class="po_contact" type="button" value="연락하기">
+          <input class="po_order" type="button" value="예약하기">
+        </div>
+      </div>
+      <div class="po_comment_input">
+        <div class="po_comment_input_title">
+          상품문의 0
+        </div>
+        <div class="po_comment_input_textarea">
+          <textarea placeholder="상품문의 입력"></textarea>
+        </div>
+        <div class="po_comment_input_button">
+          <input type="button" value="등록">
+        </div>
+      </div>
+      <div class="po_comment_wrapper">
+          <div class="po_comment_writer_wrapper">
+    
+            <div>
+              곰탱이
+            </div>
+          </div>
+          <div class="po_comment_context">
+              새거 맞을까요???
+          </div>
+      </div>
+
+
+    </div>
+  </div>
+</th:block>
+
+</html>

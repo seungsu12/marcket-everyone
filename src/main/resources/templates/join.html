@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="/layout/default">
+<head>
+    <title>회원가입</title>
+
+</head>
+
+<th:block layout:fragment="content">
+<form>
+
+  <div class="join_wrapper">
+      <div class="join_title">
+        회원가입
+      </div>
+      <div class="join_item">
+        <label for="email">이메일</label>
+        <input id="email" type="text" >
+      </div>
+      <div class="join_item">
+        <label for="password">비밀번호</label>
+        <input id="password" type="password">
+      </div>
+      <div class="join_item">
+        <label for="password2">비밀번호 확인</label>
+        <input id="password2" type="password">
+      </div>
+
+      <div class="join_item">
+        <label for="name">이름</label>
+        <input id="name" type="text">
+      </div>
+
+      <div class="join_item">
+        <label for="nickname">닉네임</label>
+        <input id="nickname" type="text">
+      </div>
+
+      <div class="join_submit_wrapper">
+
+        <input id="join_button" type="submit" value="가입하기">
+      </div>
+
+
+
+  </div>
+</form>
+</th:block>
+`<th:block layout:fragment ="js">
+    <script>
+
+        $("#join_button").click( function (event){
+            event.preventDefault();
+            let data ={
+                "email" : $("#email").val(),
+                "password" : $("#password").val(),
+                "name" :$("#name").val(),
+                "nickname" : $("#nickname").val()
+            }
+            console.log(data);
+
+            $.ajax({
+                url : "api/member/signup",
+                contentType :"application/json;charset=utf-8",
+                data :JSON.stringify(data)
+                ,method : "post"
+                ,success:function (data){
+                    console.log(data)
+                }
+
+            })
+
+        });
+
+    </script>
+</th:block>
+
+</html>

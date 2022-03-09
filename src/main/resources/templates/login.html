@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymelaf/layout"
+      layout:decorate="/layout/default">
+<head>
+    <title>Login</title>
+</head>
+
+<th:block layout:fragment="content">
+
+<div class="login_wrapper">
+      <div class="join_title">
+        Login
+      </div>
+      <div class="join_item">
+        <label for="email">이메일</label>
+        <input id="email" type="text" >
+      </div>
+      <div class="join_item">
+        <label for="password">비밀번호</label>
+        <input id="password" type="password">
+      </div>
+      <div class="join_naver_wrapper">
+
+        <img th:src="@{/image/btnG_완성형.png}">
+      </div>
+
+      <div class="join_submit_wrapper">
+
+        <input id="" type="submit" value="로그인">
+      </div>
+
+
+
+  </div>
+</body>
+</th:block>
+</html>

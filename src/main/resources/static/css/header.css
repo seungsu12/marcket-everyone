@@ -1,0 +1,31 @@
+header{
+    margin: 0 auto 0 auto;
+    background-color: aliceblue;
+    height: 6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header_right{
+    display: flex;
+    margin-right: 4rem;
+
+}
+.header_item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    width: 8rem;
+    height: 5rem;
+
+}
+.header_first{
+    font-size :1.6rem;
+    width: 15rem;
+    margin-left:5rem ;
+}
+.header_item a{
+    text-decoration: none;
+    color: black;
+}

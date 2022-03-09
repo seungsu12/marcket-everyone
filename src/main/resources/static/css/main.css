@@ -1,0 +1,111 @@
+.main_content{
+    opacity: 1;
+    margin-bottom:4rem;
+    background: url("../image/blue.jpg");
+    background-size: 100% 100%;
+    height: 42rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.main_input_box{
+    margin-top: 5rem;
+    width: 34rem;
+    display: flex;
+    justify-content: space-between;
+}
+.main_input_box input[type=text]{
+    margin-left: 1rem;
+    border : none;
+    border-radius: 1rem;
+    padding-left: 1rem;
+    width: 26rem;
+    height: 4rem;
+    font-size: 1.3rem;
+    box-shadow: 2px 2px 2px;
+
+}
+.main_input_box input[type=submit]{
+    border-radius: 1rem;
+    background-color: beige;
+    box-shadow: 2px 2px 2px;
+    width: 4rem;
+    height: 4rem;
+    vertical-align: top;
+
+
+}
+.main_input_box input[type=submit]:hover{
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+}
+
+.main_input_box select{
+    width: 5rem;
+    height: 4rem;
+    border : none;
+    border-radius: 1rem;
+    vertical-align: top;
+}
+.main_title{
+    font-size: 8rem;
+    text-shadow: 2px 7px mediumaquamarine;
+}
+
+
+@media(min-width:768px){
+
+    .post_wrapper{
+        margin: auto 30rem auto 30rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        column-gap: 5rem;
+        row-gap: 3rem;
+    }
+}
+@media(max-width:1800px) {
+    .post_wrapper{
+        margin: auto 15rem auto 15rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        column-gap: 3rem;
+        row-gap: 3rem;
+    }
+}
+
+@media(max-width:1400px) {
+    .post_wrapper{
+        margin: auto 5rem auto 5rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 3rem;
+        row-gap: 3rem;
+    }
+}
+.post_box{
+    width: 16rem;
+    height: 20rem;
+}
+.post_img{
+    width: 16rem;
+    height: 14rem;
+}
+.post_img img{
+    width: 16rem;
+    height: 14rem;
+}
+.post_info{
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    width: inherit;
+    border: 0.5px solid grey;
+}
+
+.post_price{
+    margin-top : 0.5rem;
+    font-weight: bold;
+}
