@@ -32,8 +32,8 @@ public class controller {
 
     @GetMapping("/")
     public String main(Model model) {
-        List<PostResponseDto> posts =postService.getPosts();
-        model.addAttribute("posts",posts);
+        List<PostResponseDto> posts = postService.getPosts();
+        model.addAttribute("posts", posts);
 //        log.info("id {}",posts.get(0).getPost_id());
         return "main";
     }
@@ -41,11 +41,12 @@ public class controller {
     @GetMapping("/view/post/{id}")
     public String post(@PathVariable("id") Long id, Model model) {
         PostResponseDto req = postService.findById(id);
-        log.info("post id {}",req.getPost_id());
+        log.info("post id {}", req.getPost_id());
 
-        model.addAttribute("post",req);
+        model.addAttribute("post", req);
         return "post";
     }
+
     @GetMapping("/join")
     public String join() {
 
@@ -60,5 +61,10 @@ public class controller {
     @GetMapping("/post/{id}")
     public String post(@PathVariable("id") Long id) {
         return "post";
+    }
+
+    @GetMapping("/post/create")
+    public String createPost() {
+        return "regist_post";
     }
 }
