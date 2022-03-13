@@ -7,19 +7,26 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-@Embeddable
+
 @Getter
+@Setter
+@Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Item {
 
-    public Item(String itemName, ItemType type) {
-        this.itemName = itemName;
-        this.type = type;
-    }
+
+    @GeneratedValue
+    @Column(name = "item_id")
+    @Id
+    private Long id;
 
     @Column(name = "item_name")
     private String itemName;
 
     @Enumerated(EnumType.STRING)
     private ItemType type;
+
+
+    @Embedded
+    private UploadFile attachFile;
 }

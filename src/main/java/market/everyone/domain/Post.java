@@ -31,7 +31,8 @@ public class Post {
     @JoinColumn(name = "member_id")
     private Member member;
 
-    @Embedded
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "item_id")
     private Item item;
 
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "post")
@@ -49,7 +50,6 @@ public class Post {
         post.setContext(dto.getContext());
         post.setPrice(dto.getPrice());
         post.setMember(member);
-        post.setItem(new Item(dto.getItem_name(),dto.getType()));
         return post;
     }
 
