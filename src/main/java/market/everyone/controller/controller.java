@@ -23,6 +23,12 @@ public class controller {
 
     private final PostService postService;
 
+    @GetMapping("/upload")
+    public String upload() {
+
+        return "uploadFile";
+    }
+
     @GetMapping("/chat")
     public String chatGET() {
         log.info("@ChatController , chat GET()");

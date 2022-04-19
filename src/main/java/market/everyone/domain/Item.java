@@ -15,13 +15,19 @@ import javax.persistence.*;
 public class Item {
 
 
+    @Id
     @GeneratedValue
     @Column(name = "item_id")
-    @Id
     private Long id;
 
     @Column(name = "item_name")
     private String itemName;
+
+    @OneToOne(mappedBy = "item")
+    private Post post;
+
+    @OneToOne(mappedBy = "item")
+    private Order order;
 
     @Enumerated(EnumType.STRING)
     private ItemType type;
