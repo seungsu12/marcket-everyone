@@ -61,3 +61,6 @@ logging:
 
 server:
   port: 8001
+
+file:
+  dir: /Users/seungsu/dev/everyone/src/main/resources/static/image

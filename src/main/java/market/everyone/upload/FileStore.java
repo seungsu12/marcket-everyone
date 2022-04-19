@@ -14,7 +14,7 @@ import java.util.UUID;
 @Component
 public class FileStore {
 
-    @Value("${file.dir")
+    @Value("${file.dir}")
     private String fileDir;
 
     public String getFullPath(String filename) {
@@ -33,6 +33,7 @@ public class FileStore {
     }
 
     public UploadFile storeFile(MultipartFile multipartFile) throws IOException {
+
         if (multipartFile.isEmpty()) {
             return null;
         }

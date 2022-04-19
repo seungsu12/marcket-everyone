@@ -32,7 +32,8 @@ public class Order {
 
     private Long totalPrice;
 
-    @Embedded()
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name ="item_id")
     private Item item;
 
     @ManyToOne(fetch = FetchType.LAZY)
